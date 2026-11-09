@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: roblox-mcp
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: ROBLOX_API_KEY
+        sync: false   # Render te demande la valeur au déploiement
+      - key: ROBLOX_ALLOW_WRITE
+        value: "0"    # lecture seule
